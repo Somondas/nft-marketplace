@@ -1,8 +1,8 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
-import { CircleButton } from "./Button";
-import { NFTtitle, SubInfo } from "./SubInfo";
+import { CircleButton, RectButton } from "./Button";
+import { EthPrice, NFTtitle, SubInfo } from "./SubInfo";
 
 const NFTCard = ({ data }) => {
   return (
@@ -43,10 +43,25 @@ const NFTCard = ({ data }) => {
       >
         <NFTtitle
           title={data.name}
-          subTitle={data.create}
+          subTitle={data.creator}
           titleSize={SIZES.large}
           subTitleSize={SIZES.small}
         />
+        <View
+          style={{
+            marginTop: SIZES.font,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <EthPrice price={data.price} />
+          <RectButton
+            minWidth={120}
+            fontSize={SIZES.font}
+            handlePress={() => navigation.navigate("Details", { data })}
+          />
+        </View>
       </View>
     </View>
   );
