@@ -2,6 +2,7 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { CircleButton } from "./Button";
+import { NFTtitle, SubInfo } from "./SubInfo";
 
 const NFTCard = ({ data }) => {
   return (
@@ -30,9 +31,23 @@ const NFTCard = ({ data }) => {
             borderTopRightRadius: SIZES.font,
           }}
         />
-        <CircleButton imgUrl={assets.heart} right={10} left={10} />
+
+        <CircleButton imgUrl={assets.heart} right={10} top={10} />
       </View>
-      <Text>NFTCard</Text>
+      <SubInfo />
+      <View
+        style={{
+          width: "100%",
+          padding: SIZES.font,
+        }}
+      >
+        <NFTtitle
+          title={data.name}
+          subTitle={data.create}
+          titleSize={SIZES.large}
+          subTitleSize={SIZES.small}
+        />
+      </View>
     </View>
   );
 };
