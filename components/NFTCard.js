@@ -3,8 +3,9 @@ import React from "react";
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { CircleButton, RectButton } from "./Button";
 import { EthPrice, NFTtitle, SubInfo } from "./SubInfo";
-
+import { useNavigation } from "@react-navigation/native";
 const NFTCard = ({ data }) => {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -22,7 +23,7 @@ const NFTCard = ({ data }) => {
         }}
       >
         <Image
-          source={data.image}
+          source={data.image ? data.image : assets.placeholderImage} // Added fallback image source
           resizeMode="cover"
           style={{
             width: "100%",
