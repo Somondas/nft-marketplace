@@ -55,7 +55,7 @@ export const ImageCmp = ({ imgUrl, index }) => {
   return (
     <Image
       source={imgUrl}
-      resizeMode="certain"
+      resizeMode="contain"
       style={{
         width: 48,
         height: 48,
