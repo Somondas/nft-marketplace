@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { EthPrice, NFTtitle } from "./SubInfo";
 import { COLORS, FONTS, SIZES } from "../constants";
 import { Text, View } from "react-native";
+// import { useState } from 'react/cjs/react.production.min';
 
 export default function DetailsDesc({ data }) {
+  const [text, setText] = useState(data.description.slice(0, 100));
+  const [readMore, setReadMore] = useState(false);
+
   return (
     <>
       <View
@@ -45,7 +50,26 @@ export default function DetailsDesc({ data }) {
               lineHeight: SIZES.large,
             }}
           >
-            {data.description}
+            {text}
+            {!readMore && "..."}
+            <Text
+              style={{
+                fontSize: SIZES.small,
+                fontFamily: FONTS.bold,
+                color: COLORS.primary,
+              }}
+              onPress={() => {
+                if (!readMore) {
+                  setText(data.description);
+                  setReadMore(true);
+                } else {
+                  setText(data.description.slice(0, 100));
+                  setReadMore(false);
+                }
+              }}
+            >
+              {readMore ? "Show Less" : "Read More"}
+            </Text>
           </Text>
         </View>
       </View>

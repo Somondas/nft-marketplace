@@ -73,7 +73,7 @@ export const People = () => {
     >
       {[assets.person02, assets.person03, assets.person04].map(
         (imgUrl, index) => (
-          <ImageCmp imgUrl={imgUrl} index={index} />
+          <ImageCmp key={index} imgUrl={imgUrl} index={index} />
         )
       )}
     </View>
