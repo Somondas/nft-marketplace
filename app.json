@@ -2,6 +2,7 @@
   "expo": {
     "name": "nft-marketplace",
     "slug": "nft-marketplace",
+    "description": "NFT marketplace, the front-end part",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +26,17 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1a528dcf-aa6f-4c9f-a298-35609cd7934b"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1a528dcf-aa6f-4c9f-a298-35609cd7934b"
     }
   }
 }
